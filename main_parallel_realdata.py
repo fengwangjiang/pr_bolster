@@ -178,16 +178,12 @@ def runner_realdata(verbose=False, random_state=None):
 def main():
     """docstring for main"""
     time_start = datetime.now()
-    #  runner(dataset="synthetic_data_M1")
-    runner_realdata()
-    #  main_run_experiment_list(dataset="synthetic_data_M1")
-    #  main_run_experiment_list_parallel(dataset="synthetic_data_M1")
-    #  main_run_experiment_list(dataset="synthetic_data_M2")
-    #  main_run_experiment_list(dataset="synthetic_data_M3")
-    #  main_run_experiment_list(dataset="synthetic_data_M4")
-    #  main_run_real_data_list(dataset="breast_cancer")
-    #  main_run_real_data_list_parallel()
-    #  main_run_real_data_list(dataset="lung_cancer")
+    #  runner_realdata()
+    #  from utils import test_bvr_plots_real_data
+    #  test_bvr_plots_real_data(dataset="breast_cancer")
+    #  test_bvr_plots_real_data(dataset="lung_cancer")
+    utils.test_load_errors_mean_std(dataset="breast_cancer")
+    utils.test_load_errors_mean_std(dataset="lung_cancer")
     time_end = datetime.now()
     print("Time elapsed: {}".format(time_end - time_start))
 
