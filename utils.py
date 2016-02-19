@@ -627,8 +627,11 @@ def bvr_plots(df, fig_name, clf_name_list=['LDA'],
     # print("bvr_df index levels: {}".format(df.index.levels))
     row_ = (clf_name_list, n_samples_list, n_features_list,
             n_informative, n_feat_selected_list)
+    #  import ipdb
+    #  ipdb.set_trace()
     row_ = tuple(map(list, row_))
-    row_len = np.array(map(len, row_))
+    row_len = np.array([len(x) for x in row_])
+    #  row_len = np.array(map(len, row_))
     col_ = (slice(None), bvr)
     # print("row: {}, col: {}".format(row_, col_))
     df_plot = df.loc[row_, col_]
@@ -678,7 +681,8 @@ def bvr_plots_real_data(df, fig_name, clf_name_list=['LDA'],
     row_ = (clf_name_list, n_samples_list, n_features_list,
             n_feat_selected_list)
     row_ = tuple(map(list, row_))
-    row_len = np.array(map(len, row_))
+    row_len = np.array([len(x) for x in row_])
+    #  row_len = np.array(map(len, row_))
     col_ = (slice(None), bvr)
     # print("row: {}, col: {}".format(row_, col_))
     df_plot = df.loc[row_, col_]
