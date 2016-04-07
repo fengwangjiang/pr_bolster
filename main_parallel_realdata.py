@@ -179,11 +179,11 @@ def main():
     """docstring for main"""
     time_start = datetime.now()
     #  runner_realdata()
-    #  from utils import test_bvr_plots_real_data
-    #  test_bvr_plots_real_data(dataset="breast_cancer")
+    from utils import test_bvr_plots_real_data
+    test_bvr_plots_real_data(dataset="breast_cancer")
     #  test_bvr_plots_real_data(dataset="lung_cancer")
-    utils.test_load_errors_mean_std(dataset="breast_cancer")
-    utils.test_load_errors_mean_std(dataset="lung_cancer")
+    #  utils.test_load_errors_mean_std(dataset="breast_cancer")
+    #  utils.test_load_errors_mean_std(dataset="lung_cancer")
     time_end = datetime.now()
     print("Time elapsed: {}".format(time_end - time_start))
 

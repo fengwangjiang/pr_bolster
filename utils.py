@@ -734,28 +734,36 @@ def test_bvr_plots(dataset="synthetic_data"):
     bvr_list = ['bias', 'variance', 'rms']
     clf_name_list = ["LDA", "LSVM", "RBFSVM", "3NN"]
     n_feat_selected_list = [2, 3, 5, 8, 10, 12, 15]
+    n_samples_list = range(20, 101, 10)
 
     for clf in clf_name_list:
         for i, bvr in enumerate(bvr_list):
-            fig_name = clf + '_' + fig_name_list_bvr_vs_n[i] + '.pdf'
-            fig_name = os.path.join(dir_name, fig_name)
-            if os.path.exists(fig_name):
-                print(fig_name + "exists...")
-                continue
-            bvr_plots(df, fig_name, clf_name_list=[clf],
-                      n_feat_selected_list=[5], bvr=bvr)
-            # subprocess.call(["xdg-open", fig_name])
+            fig_ = clf + '_' + fig_name_list_bvr_vs_n[i]
+            for n_feat_selected in n_feat_selected_list:
+                #  import ipdb
+                #  ipdb.set_trace()
+                fig_name = fig_ + '_d_' + str(n_feat_selected) + '.pdf'
+                fig_name = os.path.join(dir_name, fig_name)
+                if os.path.exists(fig_name):
+                    print(fig_name + "exists...")
+                    continue
+                bvr_plots(df, fig_name, clf_name_list=[clf],
+                          n_feat_selected_list=[n_feat_selected], bvr=bvr)
+                # subprocess.call(["xdg-open", fig_name])
 
         for i, bvr in enumerate(bvr_list):
-            fig_name = clf + '_' + fig_name_list_bvr_vs_d[i] + '.pdf'
-            fig_name = os.path.join(dir_name, fig_name)
-            if os.path.exists(fig_name):
-                print(fig_name + "exists...")
-                continue
-            bvr_plots(df, fig_name, clf_name_list=[clf], n_samples_list=[100],
-                      n_feat_selected_list=n_feat_selected_list,
-                      bvr=bvr)
-            # subprocess.call(["xdg-open", fig_name])
+            fig_ = clf + '_' + fig_name_list_bvr_vs_d[i]
+            for n_samples in n_samples_list:
+                fig_name = fig_ + '_n_' + str(n_samples) + '.pdf'
+                fig_name = os.path.join(dir_name, fig_name)
+                if os.path.exists(fig_name):
+                    print(fig_name + "exists...")
+                    continue
+                bvr_plots(df, fig_name, clf_name_list=[clf],
+                          n_samples_list=[n_samples],
+                          n_feat_selected_list=n_feat_selected_list,
+                          bvr=bvr)
+                # subprocess.call(["xdg-open", fig_name])
 
 
 def test_bvr_plots_real_data(dataset="breast_cancer"):
@@ -773,29 +781,33 @@ def test_bvr_plots_real_data(dataset="breast_cancer"):
     bvr_list = ['bias', 'variance', 'rms']
     clf_name_list = ["LDA", "LSVM", "RBFSVM", "3NN"]
     n_feat_selected_list = [2, 3, 5, 8, 10, 12, 15]
+    n_samples_list = range(20, 101, 10)
 
     for clf in clf_name_list:
         for i, bvr in enumerate(bvr_list):
-            fig_name = clf + '_' + fig_name_list_bvr_vs_n[i] + '.pdf'
-            fig_name = os.path.join(dir_name, fig_name)
-            if os.path.exists(fig_name):
-                print(fig_name + "exists...")
-                continue
-            bvr_plots_real_data(df, fig_name, clf_name_list=[clf],
-                                n_feat_selected_list=[5], bvr=bvr)
-            # subprocess.call(["xdg-open", fig_name])
+            fig_ = clf + '_' + fig_name_list_bvr_vs_n[i]
+            for n_feat_selected in n_feat_selected_list:
+                fig_name = fig_ + '_d_' + str(n_feat_selected) + '.pdf'
+                fig_name = os.path.join(dir_name, fig_name)
+                if os.path.exists(fig_name):
+                    print(fig_name + "exists...")
+                    continue
+                bvr_plots_real_data(df, fig_name, clf_name_list=[clf],
+                                    n_feat_selected_list=[n_feat_selected],
+                                    bvr=bvr)
 
         for i, bvr in enumerate(bvr_list):
-            fig_name = clf + '_' + fig_name_list_bvr_vs_d[i] + '.pdf'
-            fig_name = os.path.join(dir_name, fig_name)
-            if os.path.exists(fig_name):
-                print(fig_name + "exists...")
-                continue
-            bvr_plots_real_data(df, fig_name, clf_name_list=[clf],
-                                n_samples_list=[100],
-                                n_feat_selected_list=n_feat_selected_list,
-                                bvr=bvr)
-            # subprocess.call(["xdg-open", fig_name])
+            fig_ = clf + '_' + fig_name_list_bvr_vs_d[i]
+            for n_samples in n_samples_list:
+                fig_name = fig_ + '_n_' + str(n_samples) + '.pdf'
+                fig_name = os.path.join(dir_name, fig_name)
+                if os.path.exists(fig_name):
+                    print(fig_name + "exists...")
+                    continue
+                bvr_plots_real_data(df, fig_name, clf_name_list=[clf],
+                                    n_samples_list=[n_samples],
+                                    n_feat_selected_list=n_feat_selected_list,
+                                    bvr=bvr)
 
 
 def test_bvr_plots_2():

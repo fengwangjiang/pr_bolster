@@ -134,15 +134,15 @@ def main():
     #  runner(dataset="synthetic_data_M2")
     #  runner(dataset="synthetic_data_M3")
     #  runner(dataset="synthetic_data_M4")
-    #  from utils import test_bvr_plots
-    #  test_bvr_plots(dataset="synthetic_data_M1")
+    from utils import test_bvr_plots
+    test_bvr_plots(dataset="synthetic_data_M1")
     #  test_bvr_plots(dataset="synthetic_data_M2")
     #  test_bvr_plots(dataset="synthetic_data_M3")
     #  test_bvr_plots(dataset="synthetic_data_M4")
-    utils.test_load_errors_mean_std(dataset="synthetic_data_M1")
-    utils.test_load_errors_mean_std(dataset="synthetic_data_M2")
-    utils.test_load_errors_mean_std(dataset="synthetic_data_M3")
-    utils.test_load_errors_mean_std(dataset="synthetic_data_M4")
+    #  utils.test_load_errors_mean_std(dataset="synthetic_data_M1")
+    #  utils.test_load_errors_mean_std(dataset="synthetic_data_M2")
+    #  utils.test_load_errors_mean_std(dataset="synthetic_data_M3")
+    #  utils.test_load_errors_mean_std(dataset="synthetic_data_M4")
     time_end = datetime.now()
     print("Time elapsed: {}".format(time_end - time_start))
 
